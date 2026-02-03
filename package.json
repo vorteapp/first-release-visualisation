@@ -1,0 +1,30 @@
+{
+  "name": "first-release-visualisation",
+  "version": "1.0.0",
+  "description": "Svelte bundle for an embeddable interactive map UI that visualizes the scope of Vorte’s first release.",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vorteapp/first-release-visualisation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/vorteapp/first-release-visualisation/issues"
+  },
+  "homepage": "https://github.com/vorteapp/first-release-visualisation#readme",
+  "devDependencies": {
+    "esbuild": "^0.27.2",
+    "esbuild-svelte": "^0.9.4",
+    "html-minifier-terser": "^7.2.0",
+    "svelte": "^5.49.0",
+    "wrangler": "^4.61.1"
+  }
+}

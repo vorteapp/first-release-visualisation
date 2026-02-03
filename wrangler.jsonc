@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "first-release-visualisation",
+  "compatibility_date": "2026-01-29",
+  "assets": {
+    "directory": "./public",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "build": {
+    "watch_dir": "./src",
+    "command": "node build.js",
+    "cwd": ".",
+  },
+}

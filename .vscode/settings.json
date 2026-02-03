@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "wrangler.json": "jsonc"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  }
+}
