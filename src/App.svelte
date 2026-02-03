@@ -4,33 +4,33 @@
 
 <section>
   <div>
-    <ODB type="app" text="Polku Yrittäjäksi" />
-    <ODB type="app" text="Oma Talous" />
+    <ODB type="app" text="Polku Yrittäjäksi" keyword="rte" />
+    <ODB type="app" text="Oma Talous" keyword="finances" />
   </div>
-  <ODB type="namespace" text="MY VORTE" />
+  <ODB type="namespace" text="MY VORTE" keyword="my_vorte" />
   <div>
-    <ODB type="app" text="Tehtävien Hallinta" />
-    <ODB type="app" text="Ajan Hallinta" />
+    <ODB type="app" text="Tehtävien Hallinta" keyword="tasks" />
+    <ODB type="app" text="Ajan Hallinta" keyword="tm" />
   </div>
 </section>
 
 <section>
   <div>
-    <ODB type="app" text="Taloushallinto" />
-    <ODB type="app" text="Markkinointi Työkalut" />
+    <ODB type="app" text="Taloushallinto" keyword="fms" />
+    <ODB type="app" text="Markkinointi Työkalut" keyword="marketing" />
   </div>
-  <ODB type="namespace" text="VORTEPRENEUR" />
+  <ODB type="namespace" text="VORTEPRENEUR" keyword="vortepreneur" />
   <div>
-    <ODB type="app" text="Projektien Hallinta" />
-    <ODB type="app" text="Asiakkuudet" />
+    <ODB type="app" text="Projektien Hallinta" keyword="pms" />
+    <ODB type="app" text="Asiakkuudet" keyword="crm" />
   </div>
 </section>
 
 <style>
   :root {
     width: clamp(100%, 100%, 100%);
-    height: clamp(100%, 100%, 100%);
-    overflow: hidden;
+    min-height: max-content;
+    overflow: visible;
     background-color: black;
     color: #ffffff;
     font-family:
@@ -48,26 +48,27 @@
   }
   :global(body) {
     width: clamp(100%, 100%, 100%);
-    height: clamp(100%, 100%, 100%);
-    overflow: hidden;
+    min-height: max-content;
+    overflow: visible;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     position: relative;
-    gap: 2rem;
+    gap: 4rem;
+    padding: 10rem 0rem;
   }
   :global(section) {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 4rem;
   }
   :global(div) {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 4rem;
   }
 </style>

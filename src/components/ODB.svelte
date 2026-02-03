@@ -1,7 +1,11 @@
 <script lang="ts">
   import INFO from "./INFO.svelte";
-  import { infoKeyword } from "./state.js";
-  const { text, type } = $props<{ text: string; type: "namespace" | "app" }>();
+  import { InfoKeyword, infoKeyword } from "./state.js";
+  const { text, type, keyword } = $props<{
+    text: string;
+    type: "namespace" | "app";
+    keyword: InfoKeyword | "";
+  }>();
 
   let btnEl: HTMLButtonElement | HTMLHeadingElement | null = $state.raw(null);
   let dialogEl: HTMLDialogElement | null = $state.raw(null);
@@ -9,7 +13,7 @@
   function openDialog(event: MouseEvent) {
     event.stopPropagation();
     dialogEl?.showModal();
-    infoKeyword.set("vortepreneur");
+    infoKeyword.set(keyword);
   }
 
   function handleBodyClick(event: MouseEvent) {
@@ -32,18 +36,20 @@
 </script>
 
 {#if type === "namespace"}
-  <h3 bind:this={btnEl}>
+  <button class="namespace" bind:this={btnEl}>
     {text}
-  </h3>
+  </button>
+  <dialog class="namespace" bind:this={dialogEl}>
+    <INFO />
+  </dialog>
 {:else}
   <button bind:this={btnEl}>
     {text}
   </button>
+  <dialog bind:this={dialogEl}>
+    <INFO />
+  </dialog>
 {/if}
-
-<dialog bind:this={dialogEl}>
-  <INFO />
-</dialog>
 
 <style>
   button {
@@ -56,12 +62,59 @@
     cursor: pointer;
   }
   dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: none;
     overflow: hidden;
     background-color: #199473;
+    color: #ffffff;
     width: 300px;
-    height: 300px;
+    min-height: max-content;
     padding: 1rem;
     border-radius: 1rem;
+  }
+  .namespace {
+    background-color: #0b4f60;
+  }
+  dialog {
+    opacity: 0;
+    scale: 0.7;
+    transition:
+      opacity 0.4s ease-out,
+      scale 0.4s ease-out,
+      overlay 0.4s ease-out allow-discrete,
+      display 0.4s ease-out allow-discrete;
+  }
+
+  dialog[open] {
+    opacity: 1;
+    scale: 1;
+  }
+
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+      scale: 0.7;
+    }
+  }
+
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+    transition:
+      display 0.4s allow-discrete,
+      overlay 0.4s allow-discrete,
+      background-color 0.4s;
+  }
+
+  dialog[open]::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  @starting-style {
+    dialog[open]::backdrop {
+      background-color: rgba(0, 0, 0, 0);
+    }
   }
 </style>
