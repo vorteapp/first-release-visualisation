@@ -5,9 +5,10 @@
 {#if $infoKeyword}
   <div class="inner">
     <h3>{infoStates[$infoKeyword].title}</h3>
-    <p>
-      {infoStates[$infoKeyword].description}
-    </p>
+
+    {#each infoStates[$infoKeyword].description as item}
+      <p>{item}</p>
+    {/each}
   </div>
 {/if}
 

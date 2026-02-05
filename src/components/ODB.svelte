@@ -61,14 +61,15 @@
     width: 120px;
     cursor: pointer;
     font-family: "Inter";
-    font-size: small;
-    font-weight: 500;
+    font-size: medium;
+    font-weight: 400;
   }
   dialog {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1;
     border: none;
     overflow: hidden;
     background-color: #0e2f2a;

@@ -4,24 +4,24 @@
 
 <section>
   <div>
-    <ODB type="app" text="Polku Yrittäjäksi" keyword="rte" />
-    <ODB type="app" text="Oma Talous" keyword="finances" />
+    <ODB type="app" text="Polku yrittäjäksi" keyword="rte" />
+    <ODB type="app" text="Oma talous" keyword="finances" />
   </div>
   <ODB type="namespace" text="MY VORTE" keyword="my_vorte" />
   <div>
-    <ODB type="app" text="Tehtävien Hallinta" keyword="tasks" />
-    <ODB type="app" text="Ajan Hallinta" keyword="tm" />
+    <ODB type="app" text="Tehtävät" keyword="tasks" />
+    <ODB type="app" text="Aikataulut" keyword="tm" />
   </div>
 </section>
 
 <section>
   <div>
-    <ODB type="app" text="Taloushallinto" keyword="fms" />
+    <ODB type="app" text="Talous" keyword="fms" />
     <ODB type="app" text="Markkinointi" keyword="marketing" />
   </div>
   <ODB type="namespace" text="VORTEPRENEUR" keyword="vortepreneur" />
   <div>
-    <ODB type="app" text="Projektien Hallinta" keyword="pms" />
+    <ODB type="app" text="Projektit" keyword="pms" />
     <ODB type="app" text="Asiakkuudet" keyword="crm" />
   </div>
 </section>
@@ -57,7 +57,7 @@
     align-content: center;
     position: relative;
     flex-wrap: wrap;
-    gap: 4rem;
+    gap: 2rem;
     padding: 10rem 0rem;
     margin: 0;
   }
