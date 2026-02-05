@@ -55,11 +55,14 @@
   button {
     all: unset;
     text-align: center;
-    background-color: #199473;
+    background-color: #0e2f2a;
     padding: 1rem;
-    border-radius: 1rem;
-    width: 200px;
+    border-radius: 0.5rem;
+    width: 120px;
     cursor: pointer;
+    font-family: "Inter";
+    font-size: small;
+    font-weight: 500;
   }
   dialog {
     position: fixed;
@@ -68,15 +71,16 @@
     transform: translate(-50%, -50%);
     border: none;
     overflow: hidden;
-    background-color: #199473;
+    background-color: #0e2f2a;
     color: #ffffff;
     width: 300px;
+    max-width: 90%;
     min-height: max-content;
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
   }
   .namespace {
-    background-color: #0b4f60;
+    background-color: #0b2a2f;
   }
   dialog {
     opacity: 0;

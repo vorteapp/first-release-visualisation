@@ -19,12 +19,12 @@
   "bugs": {
     "url": "https://github.com/vorteapp/first-release-visualisation/issues"
   },
-  "homepage": "https://github.com/vorteapp/first-release-visualisation#readme",
+  "homepage": "https://about.vorte.app",
   "devDependencies": {
     "esbuild": "^0.27.2",
     "esbuild-svelte": "^0.9.4",
     "html-minifier-terser": "^7.2.0",
-    "svelte": "^5.49.0",
-    "wrangler": "^4.61.1"
+    "svelte": "^5.49.2",
+    "wrangler": "^4.62.0"
   }
 }

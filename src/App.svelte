@@ -17,7 +17,7 @@
 <section>
   <div>
     <ODB type="app" text="Taloushallinto" keyword="fms" />
-    <ODB type="app" text="Markkinointi Työkalut" keyword="marketing" />
+    <ODB type="app" text="Markkinointi" keyword="marketing" />
   </div>
   <ODB type="namespace" text="VORTEPRENEUR" keyword="vortepreneur" />
   <div>
@@ -54,21 +54,31 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    align-content: center;
     position: relative;
+    flex-wrap: wrap;
     gap: 4rem;
     padding: 10rem 0rem;
+    margin: 0;
   }
   :global(section) {
+    max-width: 100%;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
   }
   :global(div) {
+    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
   }
 </style>

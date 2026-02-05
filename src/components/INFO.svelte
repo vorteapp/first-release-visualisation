@@ -24,5 +24,12 @@
   p {
     padding: 0;
     margin: 0;
+    font-family: "Inter";
+    font-weight: 300;
+  }
+
+  h3 {
+    font-weight: 100;
+    text-transform: uppercase;
   }
 </style>
