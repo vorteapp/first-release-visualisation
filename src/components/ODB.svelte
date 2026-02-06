@@ -44,13 +44,19 @@
     background-color: #0e2f2a;
     padding: 1rem;
     border-radius: 0.5rem;
-    width: 120px;
+    width: 100px;
     cursor: pointer;
     font-family: "Inter";
-    font-size: medium;
-    font-weight: 400;
+    font-size: x-small;
+    font-weight: 900;
   }
 
+  @media (orientation: landscape) {
+    button {
+      width: 150px;
+      font-size: medium;
+    }
+  }
   button.namespace {
     background-color: #0b2a2f;
   }

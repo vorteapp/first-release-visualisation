@@ -80,11 +80,14 @@ export function openDialog(
   isNamespace: boolean,
 ) {
   event.stopPropagation();
-  isNamespace ?
-    dialogEl?.classList.add("namespace")
-  : dialogEl?.classList.remove("namespace");
-  dialogEl?.showModal();
+  if (!dialogEl) return;
+  isNamespace
+    ? dialogEl.classList.add("namespace")
+    : dialogEl.classList.remove("namespace");
   infoKeyword.set(keyword);
+  if (!dialogEl.open) {
+    dialogEl.showModal();
+  }
 }
 export function closeDialog() {
   dialogEl?.close();

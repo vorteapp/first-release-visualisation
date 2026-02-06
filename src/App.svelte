@@ -1,8 +1,14 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  import INFO from "./components/INFO.svelte";
   import ODB from "./components/ODB.svelte";
   import { setDialogEl } from "./components/state";
-  let dialogEl: HTMLDialogElement;
-  setDialogEl(dialogEl);
+  let dialogEl: HTMLDialogElement | null = null;
+  onMount(() => {
+    if (dialogEl) {
+      setDialogEl(dialogEl);
+    }
+  });
 </script>
 
 <section>
@@ -29,14 +35,16 @@
   </div>
 </section>
 
-<dialog bind:this={dialogEl} class="namespace"></dialog>
+<dialog bind:this={dialogEl} class="namespace">
+  <INFO />
+</dialog>
 
 <style>
   :root {
     width: clamp(100%, 100%, 100%);
     min-height: max-content;
     overflow: visible;
-    background-color: black;
+    background-color: transparent;
     color: #ffffff;
     font-family:
       system-ui,
@@ -52,6 +60,7 @@
       sans-serif;
   }
   :global(body) {
+    position: relative;
     width: clamp(100%, 100%, 100%);
     min-height: max-content;
     overflow: visible;
@@ -63,7 +72,7 @@
     position: relative;
     flex-wrap: wrap;
     gap: 2rem;
-    padding: 10rem 0rem;
+    padding: 6rem 0rem;
     margin: 0;
   }
   :global(section) {
@@ -88,21 +97,21 @@
   }
   dialog {
     position: fixed;
+    z-index: 5;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
     border: none;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     background-color: #0e2f2a;
     color: #ffffff;
     width: 300px;
     max-width: 90%;
-    min-height: max-content;
+    height: max-content;
+    max-height: 90%;
     padding: 1rem;
     border-radius: 0.5rem;
-  }
-  dialog {
     opacity: 0;
     scale: 0.7;
     transition:
@@ -110,6 +119,13 @@
       scale 0.4s ease-out,
       overlay 0.4s ease-out allow-discrete,
       display 0.4s ease-out allow-discrete;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  dialog::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
 
   dialog[open] {
@@ -125,15 +141,11 @@
   }
 
   dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
     transition:
       display 0.4s allow-discrete,
       overlay 0.4s allow-discrete,
       background-color 0.4s;
-  }
-
-  dialog[open]::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
   }
 
   @starting-style {
