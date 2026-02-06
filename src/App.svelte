@@ -1,5 +1,8 @@
 <script lang="ts">
   import ODB from "./components/ODB.svelte";
+  import { setDialogEl } from "./components/state";
+  let dialogEl: HTMLDialogElement;
+  setDialogEl(dialogEl);
 </script>
 
 <section>
@@ -25,6 +28,8 @@
     <ODB type="app" text="Asiakkuudet" keyword="crm" />
   </div>
 </section>
+
+<dialog bind:this={dialogEl} class="namespace"></dialog>
 
 <style>
   :root {
@@ -80,5 +85,63 @@
     align-content: center;
     flex-wrap: wrap;
     gap: 2rem;
+  }
+  dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    border: none;
+    overflow: hidden;
+    background-color: #0e2f2a;
+    color: #ffffff;
+    width: 300px;
+    max-width: 90%;
+    min-height: max-content;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  dialog {
+    opacity: 0;
+    scale: 0.7;
+    transition:
+      opacity 0.4s ease-out,
+      scale 0.4s ease-out,
+      overlay 0.4s ease-out allow-discrete,
+      display 0.4s ease-out allow-discrete;
+  }
+
+  dialog[open] {
+    opacity: 1;
+    scale: 1;
+  }
+
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+      scale: 0.7;
+    }
+  }
+
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+    transition:
+      display 0.4s allow-discrete,
+      overlay 0.4s allow-discrete,
+      background-color 0.4s;
+  }
+
+  dialog[open]::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  @starting-style {
+    dialog[open]::backdrop {
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+  dialog.namespace {
+    background-color: #0b2a2f;
   }
 </style>

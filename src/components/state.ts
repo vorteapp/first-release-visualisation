@@ -69,3 +69,23 @@ export const infoStates = {
 
 export type InfoKeyword = keyof typeof infoStates;
 export const infoKeyword = writable<InfoKeyword | null>(null);
+let dialogEl: HTMLDialogElement | null = null;
+export function setDialogEl(el: HTMLDialogElement) {
+  dialogEl = el;
+}
+
+export function openDialog(
+  event: MouseEvent,
+  keyword: InfoKeyword,
+  isNamespace: boolean,
+) {
+  event.stopPropagation();
+  isNamespace ?
+    dialogEl?.classList.add("namespace")
+  : dialogEl?.classList.remove("namespace");
+  dialogEl?.showModal();
+  infoKeyword.set(keyword);
+}
+export function closeDialog() {
+  dialogEl?.close();
+}
