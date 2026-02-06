@@ -51,7 +51,7 @@
     font-weight: 400;
   }
 
-  .namespace {
+  button.namespace {
     background-color: #0b2a2f;
   }
 </style>
