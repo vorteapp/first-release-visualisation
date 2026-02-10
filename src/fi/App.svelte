@@ -59,6 +59,17 @@
       "Helvetica Neue",
       sans-serif;
   }
+
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
   :global(body) {
     position: relative;
     width: clamp(100%, 100%, 100%);
@@ -119,13 +130,6 @@
       scale 0.4s ease-out,
       overlay 0.4s ease-out allow-discrete,
       display 0.4s ease-out allow-discrete;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  dialog::-webkit-scrollbar {
-    width: 0;
-    height: 0;
   }
 
   dialog[open] {

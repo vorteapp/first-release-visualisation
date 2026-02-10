@@ -1,0 +1,163 @@
+<script lang="ts">
+  import { onMount } from "svelte";
+  import INFO from "./components/INFO.svelte";
+  import ODB from "./components/ODB.svelte";
+  import { setDialogEl } from "./components/state";
+  let dialogEl: HTMLDialogElement | null = null;
+  onMount(() => {
+    if (dialogEl) {
+      setDialogEl(dialogEl);
+    }
+  });
+</script>
+
+<section>
+  <div>
+    <ODB type="app" text="Path to Entrepreneurship" keyword="rte" />
+    <ODB type="app" text="Personal Finances" keyword="finances" />
+  </div>
+  <ODB type="namespace" text="MY VORTE" keyword="my_vorte" />
+  <div>
+    <ODB type="app" text="Tasks" keyword="tasks" />
+    <ODB type="app" text="Schedules" keyword="tm" />
+  </div>
+</section>
+
+<section>
+  <div>
+    <ODB type="app" text="Finance" keyword="fms" />
+    <ODB type="app" text="Marketing" keyword="marketing" />
+  </div>
+  <ODB type="namespace" text="VORTEPRENEUR" keyword="vortepreneur" />
+  <div>
+    <ODB type="app" text="Projects" keyword="pms" />
+    <ODB type="app" text="Customer Relationships" keyword="crm" />
+  </div>
+</section>
+
+<dialog bind:this={dialogEl} class="namespace">
+  <INFO />
+</dialog>
+
+<style>
+  :root {
+    width: clamp(100%, 100%, 100%);
+    min-height: max-content;
+    overflow: visible;
+    background-color: transparent;
+    color: #ffffff;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+  }
+
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  :global(body) {
+    position: relative;
+    width: clamp(100%, 100%, 100%);
+    min-height: max-content;
+    overflow: visible;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 6rem 0rem;
+    margin: 0;
+  }
+  :global(section) {
+    max-width: 100%;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  :global(div) {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  dialog {
+    position: fixed;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #0e2f2a;
+    color: #ffffff;
+    width: 300px;
+    max-width: 90%;
+    height: max-content;
+    max-height: 90%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    opacity: 0;
+    scale: 0.7;
+    transition:
+      opacity 0.4s ease-out,
+      scale 0.4s ease-out,
+      overlay 0.4s ease-out allow-discrete,
+      display 0.4s ease-out allow-discrete;
+  }
+
+  dialog[open] {
+    opacity: 1;
+    scale: 1;
+  }
+
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+      scale: 0.7;
+    }
+  }
+
+  dialog::backdrop {
+    background-color: transparent;
+    transition:
+      display 0.4s allow-discrete,
+      overlay 0.4s allow-discrete,
+      background-color 0.4s;
+  }
+
+  @starting-style {
+    dialog[open]::backdrop {
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+  dialog.namespace {
+    background-color: #0b2a2f;
+  }
+</style>
