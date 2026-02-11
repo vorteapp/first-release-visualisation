@@ -160,4 +160,18 @@
   dialog.namespace {
     background-color: #0b2a2f;
   }
+
+  :global(dialog div.inner h3) {
+    color: #8fe3c1;
+  }
+  :global(dialog div.inner p) {
+    color: #f0fafa;
+  }
+
+  :global(dialog.namespace div.inner h3) {
+    color: #8fe3e0;
+  }
+  :global(dialog.namespace div.inner p) {
+    color: #f2faf7;
+  }
 </style>

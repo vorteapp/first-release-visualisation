@@ -20,6 +20,7 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
+    padding-bottom: 2rem;
   }
   h3,
   p {
@@ -27,6 +28,7 @@
     margin: 0;
     font-family: "Inter";
     font-weight: 300;
+    text-align: center;
   }
 
   h3 {

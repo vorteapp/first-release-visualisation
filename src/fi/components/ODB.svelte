@@ -48,16 +48,18 @@
     cursor: pointer;
     font-family: "Inter";
     font-size: x-small;
-    font-weight: 900;
+    font-weight: 300;
   }
 
   @media (orientation: landscape) {
     button {
       width: 150px;
       font-size: medium;
+      color: #f0fafa;
     }
   }
   button.namespace {
     background-color: #0b2a2f;
+    color: #f2faf7;
   }
 </style>
